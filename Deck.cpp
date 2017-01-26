@@ -8,7 +8,7 @@ void Deck::fillDeck(sf::RenderWindow *window)
 {
 	Card* pCard = new Card(false);
 	sf::RectangleShape allBacks;
-	allBacks.setFillColor(sf::Color::Blue);
+	allBacks.setFillColor(sf::Color::Blue); //sets back of cards to color blue
 	allBacks.setSize(sf::Vector2f(350,250));
 	pCard->back = allBacks;
 	int positionX = 375;
@@ -18,7 +18,7 @@ void Deck::fillDeck(sf::RenderWindow *window)
 	{
 		allCards[i].makeSprite(i);
 		allCards[i].back = allBacks;
-		allCards[i].x = positionX + (400*i);
+		allCards[i].x = positionX + (400*i);  //evenly spacing out cards
 		allCards[i].y = positionY;
 			if (i > 2)
 			{
@@ -29,7 +29,7 @@ void Deck::fillDeck(sf::RenderWindow *window)
 	
 	}
 }
-void Deck::clickCard(sf::RenderWindow *window, sf::Event press)
+void Deck::clickCard(sf::RenderWindow *window, sf::Event press) //used to turn over a card
 {
 	if (press.type == sf::Event::MouseButtonPressed) //chekcing if user pressed button, then finding out if stand or hit button was pressed
 	{
@@ -47,7 +47,7 @@ void Deck::clickCard(sf::RenderWindow *window, sf::Event press)
 		}
 	}
 }
-void Deck::unClickCard(sf::RenderWindow *window, sf::Event press)
+void Deck::unClickCard(sf::RenderWindow *window, sf::Event press)  //used to turn back over a card, though this should not be allowed 
 {
 	if (press.type == sf::Event::MouseButtonPressed) //chekcing if user pressed button, then finding out if stand or hit button was pressed
 	{
@@ -81,7 +81,7 @@ int Deck:: checkTwo()
 	int count = 0;
 	for (int i = 0; i < 6; i++)
 	{
-		if (allCards[i].clicked == true)
+		if (allCards[i].clicked == true) //counts how many cards are turned over, only 2 allowed at once.
 		{
 			count++;
 		}
