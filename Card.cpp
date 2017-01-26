@@ -1,5 +1,5 @@
 #include "card.h"
-
+//sets images of animals to cards
 Card::Card(bool newMatched, bool newClicked, int newX, int newY)
 {
 	matched = newMatched;
