@@ -1,4 +1,6 @@
 #include "Deck.h"
+//Matching card game using images of animals
+//using sfml
 
 int main(void)
 {
@@ -26,15 +28,15 @@ int main(void)
 				window.close();
 			}
 
-			if (mCards.checkTwo() < 2)
+			if (mCards.checkTwo() < 2) //only allows player to look at 2 cards at once
 			{
 
 				mCards.clickCard(&window, event);
 			}
 
-			cout << time.asSeconds() << "  ";
+			cout << time.asSeconds() << "  "; //displays time for develping purposes
 		}
-		if (mCards.checkTwo() == 2)
+		if (mCards.checkTwo() == 2) //once 2 cards are flipped a timer begins, allowing the play only to see them for a certain amount of time
 		{
 			time += clock.getElapsedTime();
 			clock.restart();
@@ -55,7 +57,7 @@ int main(void)
 		window.clear();
 		int positionX = 375;
 		int positionY = 100;
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 6; i++) //displays backs of 6 cards
 		{
 			if (mCards.allCards[i].matched == false)
 			{
